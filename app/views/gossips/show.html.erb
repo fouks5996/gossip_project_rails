@@ -3,7 +3,11 @@
    <h1> <%= @gossip.title%></h1>
    <p class="content_gossip" > <%= @gossip.content%></p>
    <p>date <%= @gossip.created_at%></p>
-   <%= link_to "Auteur", user_path(@gossip.user.id) %> 
+   <p>De <%= @gossip.user.first_name%>, <%= @gossip.user.city.name%></p>
+   <div class="btn-flex">
+      <%= link_to "Auteur", user_path(@gossip.user) %> 
+      <%= link_to "Editer", edit_gossip_path(@gossip.id) %> 
+   </div>
 </div>
 
 

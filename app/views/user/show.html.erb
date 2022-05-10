@@ -2,11 +2,15 @@
 
 <div class="card-content">
    <img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
-         alt="avatar" class="rounded-circle img-fluid" style="width: 20%; min-width:250px">
+         alt="avatar" class="rounded-circle img-fluid" style="width: 8%; min-width:100px">
    <h1 class="author_title"><%= @user.first_name%></h1>
    <div>
-      <p><%= @user.email%></p>
-      <p ><%= @user.city.name%></p>
+      <p style="margin:0px" ><%= @user.email%></p>
+      <p style="margin:0px"><%= @user.age%> ans</p>
+      <p style="margin:0px">Habite à <%= @user.city.name%></p>
+      <br>
+      <br>
+      <%= link_to "ville", city_path(@user.city) %> 
    </div>
 </div>
 

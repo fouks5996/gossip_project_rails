@@ -17,7 +17,7 @@
  .flex_row_center{
    display:flex;
    flex-direction: row;
-   justify-content: space-between;
+   justify-content: flex-start;
  }
 
 
@@ -45,7 +45,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
  }
 
  .card-content h1{
@@ -104,5 +104,13 @@ svg{
 }
 
 .author_title{
-   margin-top: 50px;
+   margin-top: 10px;
+}
+
+
+.btn-flex{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   
 }

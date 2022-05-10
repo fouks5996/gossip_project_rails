@@ -1,0 +1,18 @@
+
+<div class="card-content">
+   <h1> <%= @city.name%></h1>
+</div>
+
+<div class="row p-4 flex_row_center">
+   <% @gossip.each do |gos|%>
+       <% if gos.user.city_id == @city.id %>
+         <div class="m-2 cardy" style="height:200px">
+            <div class="card-body">
+               <h5 class="card-title"><%= gos.title%></h5>
+               <p class="card-title"><%= gos.content%></p>
+            </div>
+         </div>
+      <% end %>
+   <% end %>
+</div>
+
