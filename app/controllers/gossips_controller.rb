@@ -1,10 +1,10 @@
 class GossipsController < ApplicationController
    def index
-      @gossips = Gossip.all
+      @gossips = Gossip.all.reorder(id: :asc, title: :asc, content: :asc)
     end
 
    def show
-      @gossip = Gossip.get_gossip(params[:id])
+      @gossip = Gossip.find(params[:id])
     end
 
     def new
@@ -29,11 +29,15 @@ class GossipsController < ApplicationController
 
     def update
       @gossip = Gossip.find(params[:id])
-      @gossip.update(title: params[:title], content: params[:content], user: params[:user])
-      redirect_to gossips_path
+      gossip_params = params.require(:gossip).permit(:title, :content)
+      if @gossip.update(gossip_params)
+        redirect_to action: "show", notice: 'Success', :id => @gossip.id
+      else
+        render :action => 'edit'
+      end
     end
 
-    private 
+
 
     # def gossip_params
     #   gossip_params = params.require(:gossip).permit(:title,:content)
