@@ -53,7 +53,7 @@
  }
 
  .card-content h1{
-   font-size: clamp(4rem, 7vw, 7rem);
+   font-size: clamp(4rem, 7vw, 6rem);
    font-weight: 900;
    width: 80%;
    text-align: center;
@@ -64,7 +64,7 @@
    background-color: rgb(102, 16, 171);
    color: white;
    font-size: 1.3em;
-   margin-top: 100px;
+   margin-top: 80px;
    transform: skew(-15deg);
 }
 
