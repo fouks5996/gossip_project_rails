@@ -1,0 +1,18 @@
+.home_link a {
+   padding : 20px 40px;
+   background-color: rgb(102, 16, 171) !important;
+   color: white;
+   font-size: 1rem;
+   margin: 50px 20px 0px 20px !important;
+   transform: skew(-25deg)!important;
+}
+
+.home_link a:hover {
+   color: white;
+   text-decoration: none;
+   background-color: rgb(132, 63, 188)!important;
+}
+
+.home_link{
+   margin-top: 50px;
+}

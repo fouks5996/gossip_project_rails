@@ -3,5 +3,10 @@ class Gossip < ApplicationRecord
    validates :content, presence: true
    belongs_to :user
    has_many :joins
+   has_many :comments
    has_many :tags, through: :joins
+
+   def self.time_ago(x)
+      ((Time.new - (x.created_at)).round(0))/60
+   end
 end

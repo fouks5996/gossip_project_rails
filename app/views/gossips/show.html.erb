@@ -3,13 +3,40 @@
    <h1> <%= @gossip.title%></h1>
    <p class="content_gossip" > <%= @gossip.content%></p>
    <p>date <%= @gossip.created_at%></p>
-   <p>De <%= @gossip.user.first_name%>, <%= @gossip.user.city.name%></p>
-   <div class="btn-flex">
-      <%= link_to "Auteur", user_path(@gossip.user) %> 
+   <p class="user_link" ><i class="fa-solid fa-user"></i> <%= link_to @gossip.user.first_name, user_path(@gossip.user) %>, <%= @gossip.user.city.name%></p>
+   <div class="btn-flex"> 
+   <% if current_user == @gossip.user %>
       <%= link_to "Editer", edit_gossip_path(@gossip.id) %> 
+      <a href="<%= gossip_path(@gossip.id) %>" data-method="DELETE"> Supprimer </a>
+   <% else %>
+   <% end %>
+   <% if current_user %>
+      <%= link_to "Commenter", new_gossip_comment_path(@gossip.id) %> 
+   <% else %>
+   <% end %>
    </div>
+      <h4 class="scroll_to" > <i class="fa-solid fa-arrow-down"></i> Scroll to see comments ... </h4>
 </div>
 
+<div class="comments">
+   <h3  > Commentaires (<%= @comments.length%>) </h3>
+   <%@comments.each do |com|%>
+      <div class="comment">
+         <div class="content" >
+            <p>    <img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
+         alt="avatar" class="rounded-circle img-fluid" style="width: 40px">  <%= com.user.first_name%> <span> <%= Gossip.time_ago(com)%> minutes ago </span></p>
+            <p> <%= com.content%>  </p>
+         </div>
+         <div>
+            <% if current_user == com.user %>
+               <a class="edit" href="<%= edit_gossip_comment_path(@gossip, com.id) %>" > <i class="fa-solid fa-pen"></i></a>
+               <a class="trash" href="<%= gossip_comment_path(@gossip, com.id) %>" data-method="DELETE"> <i class="fa-solid fa-trash-can"></i></a>
+            <% else %>
+            <% end %>
+         </div>
+      </div>
+   <% end %>
+</div>
 
 <svg class="d" width="522" height="229" viewBox="0 0 522 229" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 -161C37.6326 -56.544 112.798 44.8776 217.762 108.063C277.361 143.94 342.66 167.944 412.322 185.62C475.232 201.582 539.682 214.69 605.133 219.58C629.236 221.381 653.003 224.632 677.204 224.632C682.647 224.632 685.503 226.077 690 228" stroke="#6A5FE9" stroke-linecap="round"/>
@@ -21,14 +48,5 @@
 <path d="M1 -161C37.6326 -56.544 112.798 44.8776 217.762 108.063C277.361 143.94 342.66 167.944 412.322 185.62C475.232 201.582 539.682 214.69 605.133 219.58C629.236 221.381 653.003 224.632 677.204 224.632C682.647 224.632 685.503 226.077 690 228" stroke="#6A5FE9" stroke-linecap="round"/>
 </svg>
 
-<svg class="a" width="413" height="420" viewBox="0 0 413 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M-264 8.30945C-154.976 -10.8439 -29.7481 20.09345 76.7107 65.7265C137.159 100.155 190.04 145.362 239.537 197.471C284.235 244.529 327.199 294.327 363.484 349.017C376.846 369.158 391.309 388.296 403.149 409.404C405.812 414.151 408.469 415.935 412.346 418.916" stroke="#F0D785" stroke-linecap="round"/>
-</svg>
-<svg class="b" width="413" height="420" viewBox="0 0 413 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M-264 8.30945C-154.976 -10.8439 -29.7481 5.09345 76.7107 65.7265C137.159 100.155 190.04 145.362 239.537 197.471C284.235 244.529 327.199 294.327 363.484 349.017C376.846 369.158 391.309 388.296 403.149 409.404C405.812 414.151 408.469 415.935 412.346 418.916" stroke="#F0D785" stroke-linecap="round"/>
-</svg>
-<svg class="c" width="413" height="420" viewBox="0 0 413 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M-264 8.30945C-154.976 -10.8439 -29.7481 5.09345 76.7107 65.7265C137.159 100.155 190.04 145.362 239.537 197.471C284.235 244.529 327.199 294.327 363.484 349.017C376.846 369.158 391.309 388.296 403.149 409.404C405.812 414.151 408.469 415.935 412.346 418.916" stroke="#F0D785" stroke-linecap="round"/>
-</svg>
 
 

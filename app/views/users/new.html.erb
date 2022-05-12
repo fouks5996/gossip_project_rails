@@ -1,0 +1,55 @@
+<div class="card-content d-form">
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <div class="input_space"  >
+    <div class="inside_space">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+    <div class="inside_space">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+  </div>
+
+  <div class="input_space">
+    <div class="inside_space">
+      <%= f.label :description %>
+      <%= f.text_field :description, autofocus: true %>
+    </div>
+    <div class="inside_space">
+      <%= f.label :age %>
+      <%= f.text_field :age %>
+    </div>
+  </div>
+
+  <div class="input_space">
+    <div class="inside_space">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="inside_space">
+      <%= f.label :city_id %>
+      <%= f.text_field :city_id %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= f.submit "Sign up!" %>
+  </div>
+<% end %>
+      <div class="ball orange" > </div>
+   <div class="ball red" > </div> 
+   <div class="ball blue" > </div>
+   <div class="ball pink" > </div>
+      <div class="ball green" > </div>
+</div>

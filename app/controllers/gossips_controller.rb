@@ -1,10 +1,13 @@
 class GossipsController < ApplicationController
+   before_action :authorize, only: [:new, :destroy]
+
    def index
       @gossips = Gossip.all.reorder(id: :asc, title: :asc, content: :asc)
     end
 
    def show
       @gossip = Gossip.find(params[:id])
+      @comments = Comment.where('gossip_id': @gossip.id)
     end
 
     def new
@@ -12,7 +15,7 @@ class GossipsController < ApplicationController
     end
 
     def create
-      @gossip = Gossip.create(title: params[:title], content: params[:content], user: User.find(1.freeze))
+      @gossip = Gossip.create(title: params[:title], content: params[:content], user: current_user)
       if @gossip.save
          flash[:success] = "Le potin à bien été crée" #Specifying a message when it succeeds
          redirect_to gossips_path
@@ -31,16 +34,20 @@ class GossipsController < ApplicationController
       @gossip = Gossip.find(params[:id])
       gossip_params = params.require(:gossip).permit(:title, :content)
       if @gossip.update(gossip_params)
+        flash[:success] = "Le potin à bien été édité"
         redirect_to action: "show", notice: 'Success', :id => @gossip.id
       else
         render :action => 'edit'
       end
     end
 
+    def destroy
+      @gossip = Gossip.find(params[:id])
+      @gossip.destroy
+      flash[:succes] = "Le potin à bien été supprimé"
+      redirect_to gossips_path
+    end
 
 
-    # def gossip_params
-    #   gossip_params = params.require(:gossip).permit(:title,:content)
-  
-    # end
+
 end

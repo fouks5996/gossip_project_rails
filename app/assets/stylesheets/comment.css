@@ -1,0 +1,52 @@
+.comments{
+   width: 80%;
+   margin: 0 auto;
+   padding-bottom: 50px
+}
+
+h3{
+   font-size: clamp(2rem, 7vw, 3rem) !important;
+   font-weight: 900 !important;
+   margin-top: 20px !important;
+   margin-bottom: 50px !important;
+}
+
+.comment{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   background-color: rgb(255, 255, 255);
+   padding: 20px 10px;
+   border-top: 1px solid rgb(233, 233, 233);
+   border-bottom: 1px solid rgb(241, 241, 241);
+}
+
+
+.comment .content p:first-child{
+   font-weight: 800;
+}
+
+.comment .content p:first-child span{
+   font-style: italic;
+   font-size: 12px;
+   font-weight: 400;
+   margin-left: 9px;
+}
+
+.comment .content img{
+   margin-right: 10px;
+}
+
+.comment .content p:last-child{
+   margin-bottom: 0.5rem !important;
+}
+
+.trash{
+   margin-left: 20px;
+   color: black;
+}
+
+.edit{
+   color: black;
+}

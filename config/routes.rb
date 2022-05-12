@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   get '/', to: 'index#home'
   
-  resources :gossips
+  resources :gossips do
+    resources :comments
+  end
 
-  resources :user
+  resources :users
+
+  #sessions
+	get '/login'     => 'sessions#new'
+	post '/login'    => 'sessions#create'
+	delete '/logout' => 'sessions#destroy'  
 
   resources :city
 

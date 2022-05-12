@@ -28,7 +28,8 @@ end
      description: Faker::Lorem.sentence(word_count: 10),
      email: Faker::Internet.email,
      age: rand(18..77),
-     city: City.all.sample
+     city: City.all.sample,
+     password: "azerty"
      )
 end
 
