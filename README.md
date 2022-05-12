@@ -6,9 +6,11 @@
 
 Ici tu pourras :
 
+- 💬 Créer un compte et te connecter
 - 💬 Consulter l'ensemble des gossips en base
 - 👀 Consulter les détails de chaque gossip
-- 🙋🏻‍♂️ Consulter l'auteur de chaque gossip
+- 💬 Accèder aux commandes : Likes, commentaires, édition, création
+- 🙋🏻‍♂️ Consulter l'auteur et la ville de chaque gossip
 - 📖 Naviguer entre les différentes pages
 
 ---
