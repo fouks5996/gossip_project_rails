@@ -5,6 +5,8 @@ ruby '2.7.4'
 
 gem 'table_print'
 
+gem 'jquery-rails'
+
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.7', '>= 5.2.7.1'

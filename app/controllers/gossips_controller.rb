@@ -48,6 +48,9 @@ class GossipsController < ApplicationController
       redirect_to gossips_path
     end
 
-
-
+    # def like
+    #   @gossip = Gossip.find(params[:id])
+    #   Like.create(user: current_user, gossip: @gossip)
+    #   redirect_to action: "show", notice: 'Success', :id => @gossip.id
+    # end
 end

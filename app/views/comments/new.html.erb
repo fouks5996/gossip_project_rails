@@ -1,12 +1,16 @@
+<div class="card-content">
+   <h1><i class="fa-solid fa-feather-pointed"></i> Create your comment ! </h1>
+  <%= form_tag url_for(action: 'create'), method: 'post' do %>
+    <%= label_tag 'Commentaire : ' %>
+    <%= text_area_tag 'content', @comment.content %>
+    <br/> <br/>
 
-<br>
-<br>
-<br>
+    <%= submit_tag "Envoyer mon commentaire", class: "btn btn-secondary" %>
+  <% end %>
+</div>
 
-<%= form_tag url_for(action: 'create'), method: 'post' do %>
-  <%= label_tag 'Commentaire : ' %>
-  <%= text_area_tag 'content', @comment.content %>
-  <br/> <br/>
-
-  <%= submit_tag "Envoyer mon commentaire", class: "btn btn-secondary" %>
-<% end %>
+   <div class="ball orange" > </div>
+   <div class="ball red" > </div> 
+   <div class="ball blue" > </div>
+   <div class="ball pink" > </div>
+   <div class="ball green" > </div>

@@ -5,14 +5,20 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :gossips do
+    resources :likes
+  end
+
   resources :users
+  resources :city
 
   #sessions
 	get '/login'     => 'sessions#new'
 	post '/login'    => 'sessions#create'
 	delete '/logout' => 'sessions#destroy'  
 
-  resources :city
+  #Likes
+  # put '/gossips/:id/like', to: 'gossips#like', as: 'like'
 
   get 'welcome/:first_name', to: 'welcome#show'
   get '/contact', to: 'index#contact'

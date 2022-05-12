@@ -5,6 +5,8 @@ class Gossip < ApplicationRecord
    has_many :joins
    has_many :comments
    has_many :tags, through: :joins
+   has_many :likes, dependent: :destroy
+
 
    def self.time_ago(x)
       ((Time.new - (x.created_at)).round(0))/60

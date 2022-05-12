@@ -1,17 +1,23 @@
 <br>
 <br>
 <br>
-<div class="row p-4 flex_row_center">
+<div class="row feed">
+   <h1> Feed</h1>
    <%@gossips.each do |gos|%>
-      <div class="m-2 cardy">
-         <div class="cover-pic">
-         <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
-                alt="avatar" class="img-fluid" style="width: 100%; height: 100%;">
+      <div class="card">
+         <p class="name_author" >
+            <img src="https://source.unsplash.com/200x200/?portrait?sig=<%=rand(1..50)%>" 
+            alt="avatar" class="rounded-circle img-fluid" style="width: 30px; margin-right:12px">
+            <%= gos.user.first_name %> <%= gos.user.last_name %>
+         </p>
+         <div class="cover">
+               <img src="https://source.unsplash.com/200x200/?town?sig=<%=rand(1..10)%>" 
+                alt="avatar">
          </div>
-         <div class="card-body">
+         <div class="card_body">
+             <p class="like" ><i class="fa-solid fa-heart"></i><%= gos.likes.count %> <%= (gos.likes.count) > 1 ? 'Likes' : 'Like'%> <i class="fa-solid fa-comment"></i><%= gos.comments.count %> <%= (gos.comments.count) > 1 ? 'Comments' : 'Comment'%></p>
             <h5 class="card-title"><%= gos.title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= gos.user.first_name %></h6>
-            <a href="#" class="card-link"><%= link_to "Détails", gossip_path(gos.id) %></a>
+            <a class="edit" href="<%= gossip_path(gos.id)%>" >Voir plus  <i class="fa-solid fa-plus"></i> </a>
          </div>
       </div>
    <% end %>
