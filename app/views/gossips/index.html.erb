@@ -15,16 +15,18 @@
                 alt="avatar">
          </div>
          <div class="card_body">
-             <p class="like" >               
-                 <% if current_user %>
-                   <% pre_like = gos.likes.find{|like| like.user_id == current_user.id} %>
-                   <% if pre_like %>
-                      <a href="<%= gossip_like_path(gos, pre_like) %>" data-method="DELETE">  <i class="fa-solid fa-heart"></i><%= gos.likes.count %> <%= (gos.likes.count) > 1 ? 'Likes' : 'Like'%> </a>
-                   <% else %>
-                      <a href="<%= gossip_likes_path(gos) %>" data-method="POST"> <i class="fa-solid fa-heart"></i><%= gos.likes.count %> <%= (gos.likes.count) > 1 ? 'Likes' : 'Like'%> </a>
-                   <% end %>
+            <p class="like" >               
+               <% if current_user %>
+                  <% pre_like = gos.likes.find{|like| like.user_id == current_user.id} %>
+                  <% if pre_like %>
+                     <a href="<%= gossip_like_path(gos, pre_like) %>" data-method="DELETE">  <i class="fa-solid fa-heart"></i><%= gos.likes.count %> Unlike </a>
+                  <% else %>
+                     <a href="<%= gossip_likes_path(gos) %>" data-method="POST"> <i class="fa-solid fa-heart"></i><%= gos.likes.count %> <%= (gos.likes.count) > 1 ? 'Likes' : 'Like'%> </a>
+                  <% end %>
                <% else %>
-               <% end %> <i class="fa-solid fa-comment"></i><%= gos.comments.count %> <%= (gos.comments.count) > 1 ? 'Comments' : 'Comment'%></p>
+               <% end %> 
+               <i class="fa-solid fa-comment"></i><%= gos.comments.count %> <%= (gos.comments.count) > 1 ? 'Comments' : 'Comment'%>
+            </p>
             <h5 class="card-title"><%= gos.title %></h5>
             <a class="edit" href="<%= gossip_path(gos.id)%>" >Voir plus  <i class="fa-solid fa-plus"></i> </a>
          </div>
