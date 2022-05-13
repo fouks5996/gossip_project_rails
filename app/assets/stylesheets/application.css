@@ -52,7 +52,7 @@
     position: relative;
  }
 
- @media screen and (max-width:632px){
+ @media only screen and (max-width: 600px){
    .card-content{
       height: auto;
    }
@@ -68,7 +68,7 @@
 
 .btn-flex a{
    padding : 20px 40px;
-   background-color: rgb(218, 49, 137);
+   background-color: rgb(102, 16, 171);
    color: white;
    font-size: 1rem;
    margin: 30px 2px 0px 2px;
