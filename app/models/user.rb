@@ -10,4 +10,9 @@ class User < ApplicationRecord
    def self.get_user(id)
       return User.all[id.to_i - 1]
    end
+
+   def remember(remember_token)
+      remember_digest = BCrypt::Password.create(remember_token)
+      self.update(remember_digest: remember_digest)
+    end
 end
